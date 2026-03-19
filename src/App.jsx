@@ -21,7 +21,7 @@ function App() {
         <Categories />
         <section id="home">
           <h2 style={{ fontSize: '3rem', marginBottom: '20px', color: '#333' }}>
-            Bem-vinda ao Glow Studio ✨
+            Bem-vinda ao Glow Studio
           </h2>
           <p style={{ fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto', color: '#666' }}>
             Aqui você encontra beleza, cuidado e muito glow! 

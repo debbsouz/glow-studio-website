@@ -53,19 +53,29 @@ function TopProducts() {
   return (
     <section style={{
       padding: '60px 20px',
-      backgroundColor: '#ffffff'
+      background: 'linear-gradient(135deg, #fff6f8 0%, #fff1f4 100%)'
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h2 style={{
-          fontSize: '2.8rem',
+          fontSize: '3rem',
           textAlign: 'center',
-          marginBottom: '40px',
-          color: '#333',
+          marginBottom: '16px',
+          color: '#2b2b2b',
           fontFamily: "'Poppins', sans-serif",
-          fontWeight: '600'
+          fontWeight: '700',
+          letterSpacing: '0.02em'
         }}>
-          Top Produtos
+          Top Produtos Glow
         </h2>
+        <p style={{
+          textAlign: 'center',
+          margin: '0 auto 40px',
+          maxWidth: '700px',
+          color: 'rgba(51,51,51,0.75)',
+          fontSize: '1.05rem'
+        }}>
+          Os favoritos da estação, selecionados para você brilhar em todas as ocasiões.
+        </p>
 
         <div style={{
           display: 'grid',
@@ -102,17 +112,23 @@ function TopProducts() {
                   marginTop: 'auto',
                   backgroundColor: '#fecdd3',
                   border: 'none',
-                  borderRadius: '8px',
+                  borderRadius: '10px',
                   padding: '12px 18px',
                   fontSize: '1rem',
-                  fontWeight: '600',
+                  fontWeight: '700',
                   cursor: 'pointer',
                   color: '#333',
-                  transition: 'background-color 0.2s'
+                  transition: 'transform 0.2s, background-color 0.2s'
                 }}
-                onMouseOver={(e) => e.target.style.backgroundColor = '#ffebee'}
-                onMouseOut={(e) => e.target.style.backgroundColor = '#fecdd3'}>
-                  Comprar
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#ffebee';
+                  e.target.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = '#fecdd3';
+                  e.target.style.transform = 'translateY(0)';
+                }}>
+                  Comprar Agora
                 </button>
               </div>
             </div>

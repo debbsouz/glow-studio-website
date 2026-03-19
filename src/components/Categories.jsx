@@ -47,48 +47,66 @@ function Categories() {
         </h2>
 
         <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '20px'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '22px'
         }}>
           {categories.map((category, index) => (
-            <a
+            <div
               key={index}
-              href={category.link}
               style={{
-                width: '180px',
-                textDecoration: 'none',
-                color: '#333'
-              }}
-            >
-              <div style={{
-                borderRadius: '16px',
+                borderRadius: '18px',
                 overflow: 'hidden',
-                boxShadow: '0 8px 18px rgba(0,0,0,0.08)',
+                boxShadow: '0 10px 22px rgba(0,0,0,0.08)',
                 transition: 'transform 0.2s, box-shadow 0.2s',
-                backgroundColor: '#fff'
+                backgroundColor: '#fff',
+                cursor: 'pointer'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.12)';
+                e.currentTarget.style.boxShadow = '0 16px 38px rgba(246, 109, 155, 0.22)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 18px rgba(0,0,0,0.08)';
-              }}>
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  style={{ width: '100%', height: '180px', objectFit: 'cover' }}
-                />
-                <div style={{ padding: '14px', textAlign: 'center' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: '600' }}>
-                    {category.name}
-                  </h3>
-                </div>
+                e.currentTarget.style.boxShadow = '0 10px 22px rgba(0,0,0,0.08)';
+              }}
+            >
+              <img
+                src={category.image}
+                alt={category.name}
+                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+              />
+              <div style={{ padding: '16px', textAlign: 'center' }}>
+                <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: '700', color: '#2b2b2b' }}>
+                  {category.name}
+                </h3>
+                <a
+                  href={category.link}
+                  style={{
+                    display: 'inline-block',
+                    marginTop: '12px',
+                    fontSize: '0.95rem',
+                    fontWeight: '700',
+                    color: '#d6336c',
+                    textDecoration: 'none',
+                    padding: '8px 14px',
+                    borderRadius: '999px',
+                    border: '1px solid rgba(214, 51, 108, 0.25)',
+                    transition: 'background-color 0.2s, transform 0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(246, 109, 155, 0.12)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  Ver mais
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
