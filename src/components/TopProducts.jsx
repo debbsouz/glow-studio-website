@@ -53,16 +53,16 @@ function TopProducts() {
   return (
     <section style={{
       padding: '60px 0',
-      background: 'linear-gradient(135deg, #fff6f8 0%, #fff1f4 100%)'
+      backgroundColor: '#fffaf5'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
         <h2 style={{
-          fontSize: '3rem',
+          fontSize: '2.8rem',
           textAlign: 'center',
-          marginBottom: '16px',
+          margin: '4rem 0 2rem',
           color: '#2b2b2b',
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: '700',
+          fontFamily: "'Montserrat', sans-serif",
+          fontWeight: '600',
           letterSpacing: '0.02em'
         }}>
           Top Produtos Glow

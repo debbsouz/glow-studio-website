@@ -77,18 +77,18 @@ function Promotions() {
     <section
       style={{
         padding: '60px 0',
-        background: 'linear-gradient(135deg, #fff6f8 0%, #ffebee 100%)'
+        backgroundColor: '#ffffff'
       }}
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
         <h2
           style={{
-            fontSize: '3rem',
+            fontSize: '2.8rem',
             textAlign: 'center',
-            marginBottom: '12px',
+            margin: '4rem 0 2rem',
             color: '#2b2b2b',
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: '700',
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: '600',
             letterSpacing: '0.02em'
           }}
         >
@@ -110,7 +110,7 @@ function Promotions() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '26px'
+            gap: '24px'
           }}
         >
           {products.map((product, index) => (

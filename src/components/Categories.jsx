@@ -38,9 +38,9 @@ function Categories() {
         <h2 style={{
           fontSize: '2.8rem',
           textAlign: 'center',
-          marginBottom: '40px',
+          margin: '4rem 0 2rem',
           color: '#333',
-          fontFamily: "'Poppins', sans-serif",
+          fontFamily: "'Montserrat', sans-serif",
           fontWeight: '600'
         }}>
           Categorias em Destaque
@@ -49,7 +49,7 @@ function Categories() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '22px'
+          gap: '24px'
         }}>
           {categories.map((category, index) => (
             <div

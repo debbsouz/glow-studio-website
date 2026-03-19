@@ -4,7 +4,7 @@ function InfluencerCTA() {
   return (
     <section style={{
       padding: '60px 0',
-      backgroundColor: '#fff0f5',
+      backgroundColor: '#ffffff',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -13,11 +13,11 @@ function InfluencerCTA() {
     }}>
       <div style={{ maxWidth: '520px', padding: '0 5%' }}>
         <h2 style={{
-          fontSize: '3rem',
-          margin: '0 0 20px',
+          fontSize: '2.8rem',
+          margin: '4rem 0 2rem',
           color: '#2b2b2b',
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: '800',
+          fontFamily: "'Montserrat', sans-serif",
+          fontWeight: '600',
           letterSpacing: '0.02em'
         }}>
           Seja uma Influenciadora Glow

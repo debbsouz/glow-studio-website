@@ -11,7 +11,7 @@ function App() {
       <Header />
 
       <main style={{
-        marginTop: '110px', // espaço suficiente para o header fixo
+        paddingTop: '100px', // espaço suficiente para o header fixo
         textAlign: 'left',
       }}>
         <Hero />
