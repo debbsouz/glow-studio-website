@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 
 const slides = [
   {
-    image: 'https://via.placeholder.com/1200x500/ffebee/000?text=Promo+Glow+Studio+1',
-    title: 'Promoções Imperdíveis',
-    buttonText: 'Ver Ofertas'
+    image: 'https://via.placeholder.com/1920x800/ffebee/000?text=Glow+Hero+1',
+    alt: 'Mulher sorrindo com maquiagem glamourosa',
   },
   {
-    image: 'https://via.placeholder.com/1200x500/fff0f5/000?text=Promo+Glow+Studio+2',
-    title: 'Promoções Imperdíveis',
-    buttonText: 'Ver Ofertas'
+    image: 'https://via.placeholder.com/1920x800/fff0f5/000?text=Glow+Hero+2',
+    alt: 'Produtos premium em display elegante',
   },
   {
-    image: 'https://via.placeholder.com/1200x500/fecdd3/000?text=Promo+Glow+Studio+3',
-    title: 'Promoções Imperdíveis',
-    buttonText: 'Ver Ofertas'
-  },
-  {
-    image: 'https://via.placeholder.com/1200x500/ffe4e1/000?text=Promo+Glow+Studio+4',
-    title: 'Promoções Imperdíveis',
-    buttonText: 'Ver Ofertas'
+    image: 'https://via.placeholder.com/1920x800/fecdd3/000?text=Glow+Hero+3',
+    alt: 'Beleza radiante com acabamento luminoso',
   }
 ];
 
@@ -29,7 +21,8 @@ function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000); // 4 segundos
+    }, 5000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -49,7 +42,8 @@ function Hero() {
     <section style={{
       position: 'relative',
       width: '100%',
-      height: '500px',
+      height: 'calc(100vh - 110px)',
+      maxHeight: '820px',
       overflow: 'hidden',
       marginBottom: '40px'
     }}>
@@ -58,17 +52,20 @@ function Hero() {
         width: `${slides.length * 100}%`,
         height: '100%',
         transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
-        transition: 'transform 0.5s ease'
+        transition: 'transform 0.8s ease'
       }}>
         {slides.map((slide, index) => (
-          <div key={index} style={{
-            width: `${100 / slides.length}%`,
-            height: '100%',
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative'
-          }}>
+          <div
+            key={index}
+            style={{
+              width: `${100 / slides.length}%`,
+              height: '100%',
+              backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.6) 100%), url(${slide.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'relative'
+            }}
+          >
             <div style={{
               position: 'absolute',
               top: '50%',
@@ -76,50 +73,69 @@ function Hero() {
               transform: 'translate(-50%, -50%)',
               textAlign: 'center',
               color: '#fff',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+              padding: '0 24px'
             }}>
               <h1 style={{
-                fontSize: '3rem',
-                marginBottom: '20px',
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: '600'
+                fontSize: '3.2rem',
+                margin: 0,
+                fontFamily: "'Playfair Display', serif",
+                fontWeight: 700,
+                letterSpacing: '0.04em'
               }}>
-                {slide.title}
+                Descubra o Glow Perfeito
               </h1>
+              <p style={{
+                margin: '18px auto',
+                maxWidth: '520px',
+                fontSize: '1.2rem',
+                lineHeight: 1.5,
+                color: 'rgba(255,255,255,0.92)'
+              }}>
+                Beleza premium para você brilhar
+              </p>
               <button style={{
                 backgroundColor: '#fecdd3',
                 color: '#333',
                 border: 'none',
-                padding: '15px 30px',
-                fontSize: '1.2rem',
-                borderRadius: '5px',
+                padding: '14px 32px',
+                fontSize: '1rem',
+                borderRadius: '999px',
                 cursor: 'pointer',
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: '400',
-                transition: 'background-color 0.3s'
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 600,
+                transition: 'transform 0.2s, background-color 0.2s'
               }}
-              onMouseOver={(e) => e.target.style.backgroundColor = '#ffebee'}
-              onMouseOut={(e) => e.target.style.backgroundColor = '#fecdd3'}>
-                {slide.buttonText}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#ffebee';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#fecdd3';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+                Ver Promoções
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Botões prev/next */}
       <button onClick={prevSlide} style={{
         position: 'absolute',
         top: '50%',
-        left: '20px',
+        left: '24px',
         transform: 'translateY(-50%)',
-        backgroundColor: 'rgba(255,255,255,0.7)',
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
         border: 'none',
         borderRadius: '50%',
-        width: '50px',
-        height: '50px',
+        width: '44px',
+        height: '44px',
         cursor: 'pointer',
-        fontSize: '1.5rem',
+        fontSize: '1.35rem',
+        color: '#333',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         zIndex: 10
       }}>
         ‹
@@ -127,24 +143,27 @@ function Hero() {
       <button onClick={nextSlide} style={{
         position: 'absolute',
         top: '50%',
-        right: '20px',
+        right: '24px',
         transform: 'translateY(-50%)',
-        backgroundColor: 'rgba(255,255,255,0.7)',
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
         border: 'none',
         borderRadius: '50%',
-        width: '50px',
-        height: '50px',
+        width: '44px',
+        height: '44px',
         cursor: 'pointer',
-        fontSize: '1.5rem',
+        fontSize: '1.35rem',
+        color: '#333',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         zIndex: 10
       }}>
         ›
       </button>
 
-      {/* Dots */}
       <div style={{
         position: 'absolute',
-        bottom: '20px',
+        bottom: '22px',
         left: '50%',
         transform: 'translateX(-50%)',
         display: 'flex',
@@ -155,12 +174,13 @@ function Hero() {
             key={index}
             onClick={() => goToSlide(index)}
             style={{
-              width: '12px',
-              height: '12px',
+              width: currentSlide === index ? '14px' : '10px',
+              height: currentSlide === index ? '14px' : '10px',
               borderRadius: '50%',
               border: 'none',
               backgroundColor: currentSlide === index ? '#fecdd3' : 'rgba(255,255,255,0.7)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transition: 'width 0.2s, height 0.2s'
             }}
           />
         ))}
