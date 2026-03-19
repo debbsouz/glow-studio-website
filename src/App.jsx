@@ -1,4 +1,5 @@
 import Header from './components/Header.jsx';
+import Hero from './components/Hero.jsx';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         padding: '20px',
         textAlign: 'center',
       }}>
+        <Hero />
         <section id="home">
           <h2 style={{ fontSize: '3rem', marginBottom: '20px', color: '#333' }}>
             Bem-vinda ao Glow Studio ✨
