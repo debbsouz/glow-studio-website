@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import Promotions from './components/Promotions.jsx';
 import TopProducts from './components/TopProducts.jsx';
 import Categories from './components/Categories.jsx';
+import InfluencerCTA from './components/InfluencerCTA.jsx';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             Vamos recriar seu site antigo juntos, seção por seção.
           </p>
         </section>
+        <InfluencerCTA />
       </main>
     </div>
   );
