@@ -5,121 +5,211 @@ const products = [
     title: 'Perfume Floral Deluxe',
     image: 'https://via.placeholder.com/400x400/ffebee/000?text=Perfume',
     discount: '70% OFF',
+    rating: 4.9,
     oldPrice: 'R$ 299,90',
     price: 'R$ 89,90'
   },
   {
     title: 'Batom Matte Luxo',
     image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Batom',
-    discount: '60% OFF',
+    discount: '70% OFF',
+    rating: 4.7,
     oldPrice: 'R$ 79,90',
     price: 'R$ 31,90'
   },
   {
     title: 'Creme Hidratante Premium',
     image: 'https://via.placeholder.com/400x400/fecdd3/000?text=Creme',
-    discount: '65% OFF',
+    discount: '70% OFF',
+    rating: 4.8,
     oldPrice: 'R$ 129,90',
     price: 'R$ 44,90'
   },
   {
     title: 'Kit Maquiagem Completo',
     image: 'https://via.placeholder.com/400x400/ffe4e1/000?text=Kit',
-    discount: '55% OFF',
+    discount: '70% OFF',
+    rating: 4.6,
     oldPrice: 'R$ 249,90',
     price: 'R$ 111,90'
   },
   {
     title: 'Sérum Revitalizante',
     image: 'https://via.placeholder.com/400x400/ffebee/000?text=S%C3%A9rum',
-    discount: '50% OFF',
+    discount: '70% OFF',
+    rating: 4.8,
     oldPrice: 'R$ 149,90',
     price: 'R$ 74,90'
   },
   {
     title: 'Paleta de Sombras',
     image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Sombras',
-    discount: '55% OFF',
+    discount: '70% OFF',
+    rating: 4.7,
     oldPrice: 'R$ 199,90',
     price: 'R$ 89,90'
   }
 ];
 
+function renderStars(rating) {
+  const filledCount = Math.round(rating);
+  const stars = Array.from({ length: 5 }, (_, idx) => {
+    const filled = idx < filledCount;
+    return (
+      <span
+        key={idx}
+        style={{
+          color: filled ? '#ffc107' : 'rgba(0,0,0,0.2)',
+          marginRight: '2px',
+          fontSize: '0.95rem'
+        }}
+        aria-hidden="true"
+      >
+        ★
+      </span>
+    );
+  });
+  return <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>{stars}</div>;
+}
+
 function Promotions() {
   return (
-    <section style={{
-      padding: '60px 20px',
-      background: 'linear-gradient(135deg, #fff0f5 0%, #ffebee 100%)'
-    }}>
+    <section
+      style={{
+        padding: '60px 20px',
+        background: 'linear-gradient(135deg, #fff6f8 0%, #ffebee 100%)'
+      }}
+    >
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{
-          fontSize: '2.8rem',
-          textAlign: 'center',
-          marginBottom: '40px',
-          color: '#333',
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: '600'
-        }}>
+        <h2
+          style={{
+            fontSize: '3rem',
+            textAlign: 'center',
+            marginBottom: '12px',
+            color: '#2b2b2b',
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: '700',
+            letterSpacing: '0.02em'
+          }}
+        >
           Promoções Imperdíveis
         </h2>
+        <p
+          style={{
+            textAlign: 'center',
+            margin: '0 auto 44px',
+            maxWidth: '720px',
+            color: 'rgba(51,51,51,0.75)',
+            fontSize: '1.1rem'
+          }}
+        >
+          Descontos de até 70% em produtos premium. Aproveite e renove seu estojo com itens que realçam seu brilho.
+        </p>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '24px'
-        }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '26px'
+          }}
+        >
           {products.map((product, index) => (
-            <div key={index} style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '14px',
-              boxShadow: '0 8px 18px rgba(0,0,0,0.08)',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.2s',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+            <div
+              key={index}
+              style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '18px',
+                boxShadow: '0 12px 26px rgba(0,0,0,0.08)',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = '0 18px 40px rgba(246, 109, 155, 0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 12px 26px rgba(0,0,0,0.08)';
+              }}
+            >
               <div style={{ position: 'relative' }}>
-                <img src={product.image} alt={product.title} style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  padding: '6px 12px',
-                  borderRadius: '999px',
-                  backgroundColor: '#d6336c',
-                  color: '#fff',
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  style={{ width: '100%', height: '260px', objectFit: 'cover' }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '16px',
+                    left: '16px',
+                    padding: '6px 14px',
+                    borderRadius: '999px',
+                    backgroundColor: '#d6336c',
+                    color: '#fff',
+                    fontWeight: '700',
+                    fontSize: '0.9rem',
+                    boxShadow: '0 4px 14px rgba(0,0,0,0.18)'
+                  }}
+                >
                   {product.discount}
                 </div>
               </div>
-              <div style={{ padding: '18px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#333', fontWeight: '600' }}>
+
+              <div style={{ padding: '18px 18px 20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: '1.25rem',
+                    color: '#2b2b2b',
+                    fontWeight: '700'
+                  }}
+                >
                   {product.title}
                 </h3>
-                <div style={{ marginTop: '12px', gap: '12px', display: 'flex', alignItems: 'baseline' }}>
+
+                {renderStars(product.rating)}
+
+                <div
+                  style={{
+                    marginTop: '12px',
+                    gap: '12px',
+                    display: 'flex',
+                    alignItems: 'baseline'
+                  }}
+                >
                   <span style={{ color: '#999', textDecoration: 'line-through' }}>{product.oldPrice}</span>
-                  <span style={{ color: '#d6336c', fontSize: '1.2rem', fontWeight: '700' }}>{product.price}</span>
+                  <span style={{ color: '#d6336c', fontSize: '1.2rem', fontWeight: '700' }}>
+                    {product.price}
+                  </span>
                 </div>
-                <button style={{
-                  marginTop: 'auto',
-                  backgroundColor: '#fecdd3',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '12px 18px',
-                  fontSize: '1rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  color: '#333',
-                  transition: 'background-color 0.2s'
-                }}
-                onMouseOver={(e) => e.target.style.backgroundColor = '#ffebee'}
-                onMouseOut={(e) => e.target.style.backgroundColor = '#fecdd3'}>
-                  Comprar
+
+                <button
+                  style={{
+                    marginTop: 'auto',
+                    backgroundColor: '#fecdd3',
+                    border: 'none',
+                    borderRadius: '10px',
+                    padding: '12px 20px',
+                    fontSize: '1rem',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    color: '#333',
+                    transition: 'transform 0.2s, background-color 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#ffebee';
+                    e.target.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = '#fecdd3';
+                    e.target.style.transform = 'translateY(0)';
+                  }}
+                >
+                  Comprar Agora
                 </button>
               </div>
             </div>
