@@ -7,11 +7,11 @@ import InfluencerCTA from './components/InfluencerCTA.jsx';
 
 function App() {
   return (
-    <div style={{ backgroundColor: '#fffaf5', minHeight: '100vh', fontFamily: "'Poppins', sans-serif" }}>
+    <div style={{ backgroundColor: '#fdf7f9', minHeight: '100vh', fontFamily: "'Montserrat', sans-serif" }}>
       <Header />
 
       <main style={{
-        marginTop: '100px', // espaço suficiente para o header fixo
+        marginTop: '110px', // espaço suficiente para o header fixo
         padding: '20px',
         textAlign: 'center',
       }}>

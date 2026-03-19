@@ -1,114 +1,170 @@
+import React, { useState } from 'react';
+
 function Header() {
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+
   return (
     <header style={{
-      backgroundColor: '#fffaf5', // rosa muito claro
-      color: '#333',
-      padding: '15px 40px',
       position: 'fixed',
       top: 0,
       left: 0,
       width: '100%',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
       zIndex: 1000,
-      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-      fontFamily: "'Poppins', sans-serif",
+      backgroundColor: '#ffffff',
+      borderBottom: '1px solid rgba(0,0,0,0.08)',
+      boxShadow: '0 3px 18px rgba(0,0,0,0.06)',
+      padding: '14px 20px',
+      fontFamily: "'Montserrat', sans-serif",
     }}>
-      <h1 style={{
-        margin: 0,
-        fontSize: '2.2rem',
-        fontWeight: '600',
-        color: '#fecdd3', // rosa primário
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '18px'
       }}>
-        Glow Studio
-      </h1>
-
-      <nav>
-        <ul style={{
-          display: 'flex',
-          listStyle: 'none',
-          margin: 0,
-          padding: 0,
-          gap: '30px',
+        <a href="#" style={{
+          textDecoration: 'none',
+          color: '#333',
+          fontFamily: "'Playfair Display', serif",
+          fontSize: '1.7rem',
+          fontWeight: 700,
+          letterSpacing: '0.05em'
         }}>
-          <li>
-            <a href="#home" style={{
-              color: '#333',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-            onMouseOut={(e) => e.target.style.color = '#333'}>
+          Glow Studio
+        </a>
+
+        <div style={{
+          flex: 1,
+          maxWidth: '560px',
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <div style={{
+            width: '100%',
+            maxWidth: '520px',
+            display: 'flex',
+            alignItems: 'center',
+            border: '1px solid rgba(0,0,0,0.15)',
+            borderRadius: '999px',
+            padding: '8px 12px',
+            backgroundColor: '#fafafa'
+          }}>
+            <span style={{ color: '#999', fontSize: '1.1rem', marginRight: '10px' }}>🔍</span>
+            <input
+              type="text"
+              placeholder="Buscar produtos, marcas e tendências"
+              style={{
+                border: 'none',
+                outline: 'none',
+                flex: 1,
+                fontSize: '0.95rem',
+                background: 'transparent',
+                color: '#333'
+              }}
+            />
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '18px', fontSize: '0.95rem' }}>
+            <a href="#home" style={navLinkStyle}>
               Home
             </a>
-          </li>
-          <li>
-            <a href="#sobre" style={{
-              color: '#333',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-            onMouseOut={(e) => e.target.style.color = '#333'}>
+            <a href="#sobre" style={navLinkStyle}>
               Sobre
             </a>
-          </li>
-          <li>
-            <a href="#contato" style={{
-              color: '#333',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-            onMouseOut={(e) => e.target.style.color = '#333'}>
+            <a href="#contato" style={navLinkStyle}>
               Contato
             </a>
-          </li>
-          <li>
-            <a href="#carrinho" style={{
-              color: '#333',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              transition: 'color 0.3s',
-            }}
-            onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-            onMouseOut={(e) => e.target.style.color = '#333'}>
-              🛒 Carrinho
-            </a>
-          </li>
-        </ul>
-      </nav>
+            <div
+              style={{ position: 'relative' }}
+              onMouseEnter={() => setCategoriesOpen(true)}
+              onMouseLeave={() => setCategoriesOpen(false)}
+            >
+              <button style={{
+                ...navLinkStyle,
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}>
+                Categorias ▾
+              </button>
 
-      <div style={{
-        display: 'flex',
-        gap: '20px',
-        alignItems: 'center',
-      }}>
-        <span style={{
-          fontSize: '1.2rem',
-          cursor: 'pointer',
-          transition: 'color 0.3s',
-        }}
-        onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-        onMouseOut={(e) => e.target.style.color = '#333'}>
-          🔍
-        </span>
-        <span style={{
-          fontSize: '1.2rem',
-          cursor: 'pointer',
-          transition: 'color 0.3s',
-        }}
-        onMouseOver={(e) => e.target.style.color = '#fecdd3'}
-        onMouseOut={(e) => e.target.style.color = '#333'}>
-          👤
-        </span>
+              {categoriesOpen && (
+                <div style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 12px)',
+                  left: 0,
+                  minWidth: '190px',
+                  backgroundColor: '#ffffff',
+                  border: '1px solid rgba(0,0,0,0.12)',
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                  padding: '10px 0',
+                  zIndex: 1001
+                }}>
+                  {['Maquiagem', 'Skin Care', 'Cabelo', 'Unhas', 'Perfumes'].map((item) => (
+                    <a
+                      key={item}
+                      href="#"
+                      style={{
+                        display: 'block',
+                        padding: '10px 18px',
+                        color: '#333',
+                        textDecoration: 'none',
+                        fontSize: '0.95rem'
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(254,205,211,0.25)'}
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <button style={iconButtonStyle} aria-label="Perfil">
+              👤
+            </button>
+            <button style={iconButtonStyle} aria-label="Lista de desejos">
+              ❤️
+            </button>
+            <button style={iconButtonStyle} aria-label="Carrinho">
+              🛍️
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   );
 }
+
+const navLinkStyle = {
+  color: '#333',
+  textDecoration: 'none',
+  padding: '6px 0',
+  transition: 'color 0.2s',
+  fontWeight: 500
+};
+
+const iconButtonStyle = {
+  background: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+  fontSize: '1.25rem',
+  padding: '8px',
+  borderRadius: '50%',
+  transition: 'background-color 0.2s',
+  color: '#333'
+};
 
 export default Header;
