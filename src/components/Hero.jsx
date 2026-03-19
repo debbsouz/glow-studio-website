@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
@@ -39,14 +40,17 @@ function Hero() {
   };
 
   return (
-    <section style={{
-      position: 'relative',
-      width: '100%',
-      height: 'calc(100vh - 110px)',
-      maxHeight: '820px',
-      overflow: 'hidden',
-      marginBottom: '40px'
-    }}>
+    <section
+      className="heroGlow"
+      style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: '78vh',
+        overflow: 'hidden',
+        marginBottom: '60px',
+        background: 'linear-gradient(180deg, rgba(255,235,238,0.6) 0%, rgba(255,255,255,0.9) 70%)'
+      }}
+    >
       <div style={{
         display: 'flex',
         width: `${slides.length * 100}%`,
@@ -93,26 +97,10 @@ function Hero() {
               }}>
                 Beleza premium para você brilhar
               </p>
-              <button style={{
-                backgroundColor: '#fecdd3',
-                color: '#333',
-                border: 'none',
-                padding: '14px 32px',
-                fontSize: '1rem',
-                borderRadius: '999px',
-                cursor: 'pointer',
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: 600,
-                transition: 'transform 0.2s, background-color 0.2s'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#ffebee';
-                e.target.style.transform = 'translateY(-2px)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#fecdd3';
-                e.target.style.transform = 'translateY(0)';
-              }}>
+              <button
+                className="glowButton"
+                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '1rem' }}
+              >
                 Ver Promoções
               </button>
             </div>
@@ -120,45 +108,49 @@ function Hero() {
         ))}
       </div>
 
-      <button onClick={prevSlide} style={{
-        position: 'absolute',
-        top: '50%',
-        left: '24px',
-        transform: 'translateY(-50%)',
-        backgroundColor: 'rgba(255, 255, 255, 0.75)',
-        border: 'none',
-        borderRadius: '50%',
-        width: '44px',
-        height: '44px',
-        cursor: 'pointer',
-        fontSize: '1.35rem',
-        color: '#333',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 10
-      }}>
-        ‹
+      <button
+        onClick={prevSlide}
+        aria-label="Slide anterior"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '24px',
+          transform: 'translateY(-50%)',
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '44px',
+          height: '44px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10
+        }}
+      >
+        <ChevronLeft size={18} color="#333" />
       </button>
-      <button onClick={nextSlide} style={{
-        position: 'absolute',
-        top: '50%',
-        right: '24px',
-        transform: 'translateY(-50%)',
-        backgroundColor: 'rgba(255, 255, 255, 0.75)',
-        border: 'none',
-        borderRadius: '50%',
-        width: '44px',
-        height: '44px',
-        cursor: 'pointer',
-        fontSize: '1.35rem',
-        color: '#333',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 10
-      }}>
-        ›
+      <button
+        onClick={nextSlide}
+        aria-label="Próximo slide"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '24px',
+          transform: 'translateY(-50%)',
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '44px',
+          height: '44px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 10
+        }}
+      >
+        <ChevronRight size={18} color="#333" />
       </button>
 
       <div style={{

@@ -11,6 +11,14 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  /* Glow palette */
+  --glow: #ff69b4;
+  --glow-dark: #ff1493;
+  --glow-soft: rgba(255, 105, 180, 0.2);
+  --glow-soft-2: rgba(255, 105, 180, 0.12);
+  --glow-border: rgba(255, 105, 180, 0.35);
+  --glow-bg: rgba(255, 105, 180, 0.06);
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -55,7 +63,7 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -71,6 +79,7 @@ h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
+  text-shadow: 0 0 12px rgba(255, 105, 180, 0.15);
 }
 
 h1 {
@@ -108,4 +117,109 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Glow/neon buttons and cards */
+.glowCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px var(--glow-soft);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 105, 180, 0.12);
+}
+
+/* Hero banner subtle glow */
+.heroGlow {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 105, 180, 0.15);
+  box-shadow: 0 0 40px var(--glow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroGlow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.18), transparent 55%);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  animation: glowShift 12s ease-in-out infinite;
+}
+
+@keyframes glowShift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(8px, -10px);
+  }
+}
+
+.glowCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--glow-soft),
+    0 0 40px rgba(255, 105, 180, 0.35),
+    0 0 60px rgba(255, 20, 147, 0.22);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--glow-soft),
+      0 0 40px rgba(255, 105, 180, 0.25),
+      0 0 60px rgba(255, 20, 147, 0.22);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 105, 180, 0.45),
+      0 0 48px rgba(255, 105, 180, 0.32),
+      0 0 72px rgba(255, 20, 147, 0.3);
+  }
+}
+
+.glowButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 999px;
+  background: #ffebee;
+  color: var(--glow-dark);
+  border: 1px solid var(--glow-border);
+  box-shadow: 0 0 15px var(--glow-soft);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.glowButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(255, 105, 180, 0.35), transparent 55%);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.glowButton:hover {
+  background: var(--glow);
+  color: #fff;
+  box-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow-dark);
+  transform: scale(1.08);
+}
+
+.glowButton:hover::before {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.glowButton:focus-visible {
+  outline: 2px solid rgba(255, 105, 180, 0.8);
+  outline-offset: 4px;
 }

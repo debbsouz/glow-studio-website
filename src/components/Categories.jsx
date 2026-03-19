@@ -31,10 +31,10 @@ const categories = [
 function Categories() {
   return (
     <section style={{
-      padding: '60px 20px',
+      padding: '60px 5%',
       backgroundColor: '#fffaf5'
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <h2 style={{
           fontSize: '2.8rem',
           textAlign: 'center',

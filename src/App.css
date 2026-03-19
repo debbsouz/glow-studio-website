@@ -182,3 +182,77 @@
     border-right-color: var(--border);
   }
 }
+
+/* Glow hover / neon effect for product cards */
+.glowCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+  border-radius: 18px;
+}
+
+.glowCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.35),
+    0 0 40px rgba(255, 105, 180, 0.25),
+    0 0 60px rgba(255, 20, 147, 0.22);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.35),
+      0 0 40px rgba(255, 105, 180, 0.25),
+      0 0 60px rgba(255, 20, 147, 0.22);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 105, 180, 0.45),
+      0 0 48px rgba(255, 105, 180, 0.32),
+      0 0 72px rgba(255, 20, 147, 0.3);
+  }
+}
+
+/* Glow / neon buttons */
+.glowButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  border-radius: 999px;
+  background: #ffebee;
+  color: #ff1493;
+  border: 1px solid rgba(255, 20, 147, 0.35);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.glowButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top left, rgba(255, 105, 180, 0.35), transparent 55%);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.glowButton:hover {
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 0 30px #ff69b4, 0 0 60px #ff1493;
+  transform: scale(1.08);
+}
+
+.glowButton:hover::before {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.glowButton:focus-visible {
+  outline: 2px solid rgba(255, 105, 180, 0.8);
+  outline-offset: 4px;
+}

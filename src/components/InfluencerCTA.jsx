@@ -3,50 +3,39 @@ import React from 'react';
 function InfluencerCTA() {
   return (
     <section style={{
-      padding: '60px 20px',
-      background: 'linear-gradient(135deg, #fffaf5 0%, #fff0f5 100%)',
+      padding: '60px 5%',
+      backgroundColor: '#fff0f5',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: '40px',
+      gap: '42px',
       flexWrap: 'wrap'
     }}>
       <div style={{ maxWidth: '520px' }}>
         <h2 style={{
-          fontSize: '2.8rem',
+          fontSize: '3rem',
           margin: '0 0 20px',
-          color: '#333',
+          color: '#2b2b2b',
           fontFamily: "'Poppins', sans-serif",
-          fontWeight: '700'
+          fontWeight: '800',
+          letterSpacing: '0.02em'
         }}>
-          Seja uma influenciadora e divulgue nossos produtos
+          Seja uma Influenciadora Glow
         </h2>
         <p style={{
-          fontSize: '1.1rem',
-          margin: '0 0 30px',
-          color: '#555',
+          fontSize: '1.15rem',
+          margin: '0 0 32px',
+          color: 'rgba(51,51,51,0.78)',
           lineHeight: 1.6
         }}>
-          Ganhe comissão divulgando Glow Studio! Cadastre-se agora e comece a ganhar.
+          Divulgue nossos produtos e ganhe comissão + brindes exclusivos. Cadastre-se e brilhe com a gente!
         </p>
         <a
           href="#"
-          style={{
-            display: 'inline-block',
-            padding: '14px 28px',
-            backgroundColor: '#fecdd3',
-            color: '#333',
-            textDecoration: 'none',
-            borderRadius: '10px',
-            fontWeight: '600',
-            fontSize: '1.1rem',
-            transition: 'background-color 0.2s',
-            fontFamily: "'Poppins', sans-serif"
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#ffebee'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#fecdd3'}
+          className="glowButton"
+          style={{ padding: '14px 32px', fontWeight: 700, fontSize: '1.1rem' }}
         >
-          Quero ser influenciadora
+          Quero Participar
         </a>
       </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Search, User, Heart, ShoppingCart, ChevronDown } from 'lucide-react';
 
 function Header() {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -12,12 +13,12 @@ function Header() {
       zIndex: 1000,
       backgroundColor: '#ffffff',
       borderBottom: '1px solid rgba(0,0,0,0.08)',
-      boxShadow: '0 3px 18px rgba(0,0,0,0.06)',
-      padding: '14px 20px',
+      boxShadow: '0 3px 18px var(--glow-soft)',
+      padding: '14px 5%',
       fontFamily: "'Montserrat', sans-serif",
     }}>
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: '1400px',
         margin: '0 auto',
         display: 'flex',
         alignItems: 'center',
@@ -51,7 +52,7 @@ function Header() {
             padding: '8px 12px',
             backgroundColor: '#fafafa'
           }}>
-            <span style={{ color: '#999', fontSize: '1.1rem', marginRight: '10px' }}>🔍</span>
+            <Search size={18} color="#999" />
             <input
               type="text"
               placeholder="Buscar produtos, marcas e tendências"
@@ -93,7 +94,7 @@ function Header() {
                 alignItems: 'center',
                 gap: '6px'
               }}>
-                Categorias ▾
+                <span>Categorias</span> <ChevronDown size={14} />
               </button>
 
               {categoriesOpen && (
@@ -133,13 +134,13 @@ function Header() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <button style={iconButtonStyle} aria-label="Perfil">
-              👤
+              <User size={18} />
             </button>
             <button style={iconButtonStyle} aria-label="Lista de desejos">
-              ❤️
+              <Heart size={18} />
             </button>
             <button style={iconButtonStyle} aria-label="Carrinho">
-              🛍️
+              <ShoppingCart size={18} />
             </button>
           </div>
         </div>

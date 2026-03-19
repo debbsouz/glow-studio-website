@@ -12,8 +12,8 @@ function App() {
 
       <main style={{
         marginTop: '110px', // espaço suficiente para o header fixo
-        padding: '20px',
-        textAlign: 'center',
+        padding: '0 5%',
+        textAlign: 'left',
       }}>
         <Hero />
         <Promotions />
@@ -29,6 +29,18 @@ function App() {
           </p>
         </section>
         <InfluencerCTA />
+
+        <footer style={{
+          marginTop: '60px',
+          padding: '24px 20px',
+          borderTop: '1px solid rgba(0,0,0,0.08)',
+          color: 'rgba(51,51,51,0.75)',
+          fontSize: '0.95rem'
+        }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
+            Glow Studio © {new Date().getFullYear()} — Todos os direitos reservados.
+          </div>
+        </footer>
       </main>
     </div>
   );

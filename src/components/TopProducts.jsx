@@ -52,10 +52,10 @@ function StarRating({ rating }) {
 function TopProducts() {
   return (
     <section style={{
-      padding: '60px 20px',
+      padding: '60px 5%',
       background: 'linear-gradient(135deg, #fff6f8 0%, #fff1f4 100%)'
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <h2 style={{
           fontSize: '3rem',
           textAlign: 'center',
@@ -83,18 +83,17 @@ function TopProducts() {
           gap: '24px'
         }}>
           {products.map((product, index) => (
-            <div key={index} style={{
-              backgroundColor: '#fafafa',
-              borderRadius: '14px',
-              boxShadow: '0 8px 18px rgba(0,0,0,0.08)',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              transition: 'transform 0.2s',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+            <div
+              key={index}
+              className="glowCard"
+              style={{
+                backgroundColor: '#fafafa',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                cursor: 'pointer'
+              }}
+            >
               <img
                 src={product.image}
                 alt={product.title}
@@ -108,26 +107,10 @@ function TopProducts() {
                   <span style={{ fontSize: '1.2rem', fontWeight: '700', color: '#d6336c' }}>{product.price}</span>
                   <StarRating rating={product.rating} />
                 </div>
-                <button style={{
-                  marginTop: 'auto',
-                  backgroundColor: '#fecdd3',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '12px 18px',
-                  fontSize: '1rem',
-                  fontWeight: '700',
-                  cursor: 'pointer',
-                  color: '#333',
-                  transition: 'transform 0.2s, background-color 0.2s'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = '#ffebee';
-                  e.target.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = '#fecdd3';
-                  e.target.style.transform = 'translateY(0)';
-                }}>
+                <button
+                  className="glowButton"
+                  style={{ marginTop: 'auto', fontWeight: 700, fontSize: '1rem' }}
+                >
                   Comprar Agora
                 </button>
               </div>
