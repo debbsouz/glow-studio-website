@@ -1,6 +1,8 @@
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Promotions from './components/Promotions.jsx';
+import TopProducts from './components/TopProducts.jsx';
+import Categories from './components/Categories.jsx';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       }}>
         <Hero />
         <Promotions />
+        <TopProducts />
+        <Categories />
         <section id="home">
           <h2 style={{ fontSize: '3rem', marginBottom: '20px', color: '#333' }}>
             Bem-vinda ao Glow Studio ✨
