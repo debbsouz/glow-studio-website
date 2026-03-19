@@ -52,10 +52,10 @@ function StarRating({ rating }) {
 function TopProducts() {
   return (
     <section style={{
-      padding: '60px 5%',
+      padding: '60px 0',
       background: 'linear-gradient(135deg, #fff6f8 0%, #fff1f4 100%)'
     }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
         <h2 style={{
           fontSize: '3rem',
           textAlign: 'center',

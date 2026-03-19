@@ -31,10 +31,10 @@ const categories = [
 function Categories() {
   return (
     <section style={{
-      padding: '60px 5%',
+      padding: '60px 0',
       backgroundColor: '#fffaf5'
     }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
         <h2 style={{
           fontSize: '2.8rem',
           textAlign: 'center',
@@ -54,21 +54,12 @@ function Categories() {
           {categories.map((category, index) => (
             <div
               key={index}
+              className="glowCard"
               style={{
                 borderRadius: '18px',
                 overflow: 'hidden',
-                boxShadow: '0 10px 22px rgba(0,0,0,0.08)',
-                transition: 'transform 0.2s, box-shadow 0.2s',
                 backgroundColor: '#fff',
                 cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 16px 38px rgba(246, 109, 155, 0.22)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 10px 22px rgba(0,0,0,0.08)';
               }}
             >
               <img

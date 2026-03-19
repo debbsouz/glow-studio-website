@@ -3,7 +3,7 @@ import React from 'react';
 function InfluencerCTA() {
   return (
     <section style={{
-      padding: '60px 5%',
+      padding: '60px 0',
       backgroundColor: '#fff0f5',
       display: 'flex',
       justifyContent: 'center',
@@ -11,7 +11,7 @@ function InfluencerCTA() {
       gap: '42px',
       flexWrap: 'wrap'
     }}>
-      <div style={{ maxWidth: '520px' }}>
+      <div style={{ maxWidth: '520px', padding: '0 5%' }}>
         <h2 style={{
           fontSize: '3rem',
           margin: '0 0 20px',

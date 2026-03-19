@@ -44,11 +44,15 @@ function Hero() {
       className="heroGlow"
       style={{
         position: 'relative',
-        width: '100%',
-        minHeight: '78vh',
+        width: '100vw',
+        left: '50%',
+        right: '50%',
+        marginLeft: '-50vw',
+        marginRight: '-50vw',
+        minHeight: '70vh',
         overflow: 'hidden',
         marginBottom: '60px',
-        background: 'linear-gradient(180deg, rgba(255,235,238,0.6) 0%, rgba(255,255,255,0.9) 70%)'
+        background: 'linear-gradient(180deg, #fff0f5 0%, #ffffff 100%)'
       }}
     >
       <div style={{
@@ -64,7 +68,7 @@ function Hero() {
             style={{
               width: `${100 / slides.length}%`,
               height: '100%',
-              backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.6) 100%), url(${slide.image})`,
+              backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               position: 'relative'
@@ -77,29 +81,35 @@ function Hero() {
               transform: 'translate(-50%, -50%)',
               textAlign: 'center',
               color: '#fff',
-              padding: '0 24px'
+              padding: '0 24px',
+              textShadow: '0 2px 4px rgba(0,0,0,0.5)'
             }}>
               <h1 style={{
-                fontSize: '3.2rem',
+                fontSize: '3.6rem',
                 margin: 0,
                 fontFamily: "'Playfair Display', serif",
-                fontWeight: 700,
-                letterSpacing: '0.04em'
+                fontWeight: 800,
+                letterSpacing: '0.04em',
+                color: '#fff'
               }}>
                 Descubra o Glow Perfeito
               </h1>
               <p style={{
                 margin: '18px auto',
                 maxWidth: '520px',
-                fontSize: '1.2rem',
-                lineHeight: 1.5,
-                color: 'rgba(255,255,255,0.92)'
+                fontSize: '1.15rem',
+                lineHeight: 1.6,
+                color: '#fff'
               }}>
-                Beleza premium para você brilhar
+                Experimente brilho, textura e luxo em cada produto.
               </p>
               <button
                 className="glowButton"
-                style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, fontSize: '1rem' }}
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '1rem'
+                }}
               >
                 Ver Promoções
               </button>
@@ -114,18 +124,27 @@ function Hero() {
         style={{
           position: 'absolute',
           top: '50%',
-          left: '24px',
+          left: '28px',
           transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(255, 255, 255, 0.75)',
-          border: 'none',
+          backgroundColor: 'rgba(255, 255, 255, 0.65)',
+          border: '1px solid rgba(255, 105, 180, 0.4)',
           borderRadius: '50%',
-          width: '44px',
-          height: '44px',
+          width: '42px',
+          height: '42px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 10
+          zIndex: 10,
+          transition: 'transform 0.2s, box-shadow 0.2s'
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
+          e.currentTarget.style.boxShadow = '0 0 16px rgba(255, 105, 180, 0.4)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+          e.currentTarget.style.boxShadow = 'none';
         }}
       >
         <ChevronLeft size={18} color="#333" />
@@ -136,18 +155,27 @@ function Hero() {
         style={{
           position: 'absolute',
           top: '50%',
-          right: '24px',
+          right: '28px',
           transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(255, 255, 255, 0.75)',
-          border: 'none',
+          backgroundColor: 'rgba(255, 255, 255, 0.65)',
+          border: '1px solid rgba(255, 105, 180, 0.4)',
           borderRadius: '50%',
-          width: '44px',
-          height: '44px',
+          width: '42px',
+          height: '42px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 10
+          zIndex: 10,
+          transition: 'transform 0.2s, box-shadow 0.2s'
+        }}
+        onMouseOver={(e) => {
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
+          e.currentTarget.style.boxShadow = '0 0 16px rgba(255, 105, 180, 0.4)';
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+          e.currentTarget.style.boxShadow = 'none';
         }}
       >
         <ChevronRight size={18} color="#333" />
@@ -166,13 +194,14 @@ function Hero() {
             key={index}
             onClick={() => goToSlide(index)}
             style={{
-              width: currentSlide === index ? '14px' : '10px',
-              height: currentSlide === index ? '14px' : '10px',
+              width: '10px',
+              height: '10px',
               borderRadius: '50%',
-              border: 'none',
-              backgroundColor: currentSlide === index ? '#fecdd3' : 'rgba(255,255,255,0.7)',
+              border: currentSlide === index ? '1px solid var(--glow)' : '1px solid rgba(255,255,255,0.6)',
+              backgroundColor: currentSlide === index ? 'var(--glow)' : 'rgba(255,255,255,0.6)',
               cursor: 'pointer',
-              transition: 'width 0.2s, height 0.2s'
+              transition: 'transform 0.2s, background-color 0.2s, border 0.2s',
+              transform: currentSlide === index ? 'scale(1.2)' : 'scale(1)'
             }}
           />
         ))}
