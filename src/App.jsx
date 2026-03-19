@@ -1,5 +1,6 @@
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
+import Promotions from './components/Promotions.jsx';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         textAlign: 'center',
       }}>
         <Hero />
+        <Promotions />
         <section id="home">
           <h2 style={{ fontSize: '3rem', marginBottom: '20px', color: '#333' }}>
             Bem-vinda ao Glow Studio ✨
