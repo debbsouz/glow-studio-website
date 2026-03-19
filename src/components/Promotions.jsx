@@ -2,52 +2,52 @@ import React from 'react';
 
 const products = [
   {
-    title: 'Perfume Floral Deluxe',
-    image: 'https://via.placeholder.com/400x400/ffebee/000?text=Perfume',
-    discount: '70% OFF',
+    title: 'Chanel No. 5',
+    image: 'https://via.placeholder.com/400x400/ffebee/000?text=Chanel+No.5',
+    discount: '50% OFF',
     rating: 4.9,
-    oldPrice: 'R$ 299,90',
-    price: 'R$ 89,90'
+    oldPrice: 'R$ 599,00',
+    price: 'R$ 299,50'
   },
   {
-    title: 'Batom Matte Luxo',
-    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Batom',
-    discount: '70% OFF',
+    title: 'MAC Ruby Woo Lipstick',
+    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=MAC+Ruby+Woo',
+    discount: '40% OFF',
     rating: 4.7,
-    oldPrice: 'R$ 79,90',
-    price: 'R$ 31,90'
-  },
-  {
-    title: 'Creme Hidratante Premium',
-    image: 'https://via.placeholder.com/400x400/fecdd3/000?text=Creme',
-    discount: '70% OFF',
-    rating: 4.8,
     oldPrice: 'R$ 129,90',
-    price: 'R$ 44,90'
+    price: 'R$ 77,94'
   },
   {
-    title: 'Kit Maquiagem Completo',
-    image: 'https://via.placeholder.com/400x400/ffe4e1/000?text=Kit',
-    discount: '70% OFF',
-    rating: 4.6,
-    oldPrice: 'R$ 249,90',
-    price: 'R$ 111,90'
-  },
-  {
-    title: 'Sérum Revitalizante',
-    image: 'https://via.placeholder.com/400x400/ffebee/000?text=S%C3%A9rum',
-    discount: '70% OFF',
+    title: 'La Mer Crème de la Mer',
+    image: 'https://via.placeholder.com/400x400/fecdd3/000?text=La+Mer+Creme',
+    discount: '30% OFF',
     rating: 4.8,
-    oldPrice: 'R$ 149,90',
-    price: 'R$ 74,90'
+    oldPrice: 'R$ 1.200,00',
+    price: 'R$ 840,00'
   },
   {
-    title: 'Paleta de Sombras',
-    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Sombras',
-    discount: '70% OFF',
-    rating: 4.7,
+    title: 'Fenty Beauty Pro Filt\'r Foundation',
+    image: 'https://via.placeholder.com/400x400/ffe4e1/000?text=Fenty+Foundation',
+    discount: '60% OFF',
+    rating: 4.6,
     oldPrice: 'R$ 199,90',
-    price: 'R$ 89,90'
+    price: 'R$ 79,96'
+  },
+  {
+    title: 'Yves Saint Laurent Black Opium',
+    image: 'https://via.placeholder.com/400x400/ffebee/000?text=YSL+Black+Opium',
+    discount: '45% OFF',
+    rating: 4.8,
+    oldPrice: 'R$ 349,90',
+    price: 'R$ 192,44'
+  },
+  {
+    title: 'NARS Radiant Creamy Concealer',
+    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=NARS+Concealer',
+    discount: '35% OFF',
+    rating: 4.7,
+    oldPrice: 'R$ 149,90',
+    price: 'R$ 97,44'
   }
 ];
 

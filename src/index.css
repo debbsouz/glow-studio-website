@@ -140,7 +140,7 @@ code {
 }
 
 .glowButton {
-  background: linear-gradient(135deg, var(--glow-color), var(--glow-dark));
+  background: #ec4899;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -149,11 +149,12 @@ code {
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(248, 187, 217, 0.2);
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+  width: 100%;
 }
 
 .glowButton:hover {
-  background: linear-gradient(135deg, var(--glow-dark), var(--glow-color));
+  background: #d63384;
   box-shadow: 0 6px 20px rgba(248, 187, 217, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }

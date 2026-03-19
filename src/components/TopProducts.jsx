@@ -2,40 +2,40 @@ import React from 'react';
 
 const products = [
   {
-    title: 'Base Glow HD',
-    image: 'https://via.placeholder.com/400x400/ffebee/000?text=Base',
+    title: 'Fenty Beauty Pro Filt\'r Soft Matte Longwear Foundation',
+    image: 'https://via.placeholder.com/400x400/ffebee/000?text=Fenty+Foundation',
+    price: 'R$ 199,90',
+    rating: 5
+  },
+  {
+    title: 'Benefit Hoola Bronzer',
+    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Benefit+Hoola',
+    price: 'R$ 149,90',
+    rating: 4.9
+  },
+  {
+    title: 'Glossier Lip Gloss',
+    image: 'https://via.placeholder.com/400x400/fecdd3/000?text=Glossier+Gloss',
     price: 'R$ 89,90',
-    rating: 5
+    rating: 4.8
   },
   {
-    title: 'Paleta Iluminadora',
-    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Iluminador',
-    price: 'R$ 79,90',
-    rating: 4
+    title: 'Anastasia Beverly Hills Brow Wiz',
+    image: 'https://via.placeholder.com/400x400/ffe4e1/000?text=Anastasia+Brow',
+    price: 'R$ 129,90',
+    rating: 4.7
   },
   {
-    title: 'Lip Tint Cor Rosa',
-    image: 'https://via.placeholder.com/400x400/fecdd3/000?text=Lip+Tint',
-    price: 'R$ 34,90',
-    rating: 5
+    title: 'The Ordinary Hyaluronic Acid 2% + B5',
+    image: 'https://via.placeholder.com/400x400/ffebee/000?text=The+Ordinary+HA',
+    price: 'R$ 59,90',
+    rating: 4.9
   },
   {
-    title: 'Máscara de Cílios',
-    image: 'https://via.placeholder.com/400x400/ffe4e1/000?text=M%C3%A1scara',
-    price: 'R$ 49,90',
-    rating: 4
-  },
-  {
-    title: 'Sérum Antioxidante',
-    image: 'https://via.placeholder.com/400x400/ffebee/000?text=S%C3%A9rum',
-    price: 'R$ 64,90',
-    rating: 5
-  },
-  {
-    title: 'Blush Cremoso',
-    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Blush',
-    price: 'R$ 39,90',
-    rating: 4
+    title: 'Urban Decay Naked Basics Eyeshadow Palette',
+    image: 'https://via.placeholder.com/400x400/fff0f5/000?text=Urban+Decay+Naked',
+    price: 'R$ 179,90',
+    rating: 4.6
   }
 ];
 
