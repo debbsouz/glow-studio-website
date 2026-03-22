@@ -5,41 +5,44 @@ function About() {
       style={{
         padding: '140px 5% 100px',
         backgroundColor: '#fff',
+        scrollMarginTop: '120px',
       }}
     >
       <div
         style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          display: 'flex', // 👈 TROQUEI GRID POR FLEX
+          display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '60px',
-          flexWrap: 'wrap', // 👈 ISSO SALVA NO MOBILE
+          gap: '80px',
+          flexWrap: 'wrap',
         }}
       >
         {/* TEXTO */}
         <div style={{ flex: 1, minWidth: '280px' }}>
           <h2
             style={{
-              fontSize: 'clamp(2.2rem, 5vw, 3rem)',
+              fontSize: '2.4rem', // 🔥 padronizado com Services/Localização
+              marginBottom: '20px',
               fontFamily: "'Playfair Display', serif",
-              marginBottom: '1.5rem',
-              color: '#111',
+              fontWeight: 600,
+              letterSpacing: '0.5px',
+              color: '#000',
             }}
           >
-            Olá, eu sou a Bia
+            Sobre
           </h2>
 
           <p style={textStyle}>
             Maquiadora profissional dedicada a valorizar a sua essência e destacar o que você tem de mais bonito.
-            Com anos de experiência no mercado, atuo em maquiagem para noivas, eventos, ensaios e produções especiais,
-            sempre buscando um resultado elegante, moderno e que combine perfeitamente com você.
+            Atuo em maquiagem para noivas, eventos e produções especiais, sempre buscando um resultado elegante,
+            moderno e alinhado com o seu estilo.
           </p>
 
-          <p style={{ ...textStyle, marginTop: '1.5rem' }}>
-            Cada detalhe é pensado com cuidado para criar uma maquiagem leve, sofisticada e com aquele glow
-            que realça sua beleza de forma única.
+          <p style={{ ...textStyle, marginTop: '20px' }}>
+            Cada detalhe é pensado com cuidado para criar uma maquiagem leve, sofisticada e com um acabamento
+            impecável, realçando sua beleza de forma natural e única.
           </p>
         </div>
 
@@ -57,10 +60,19 @@ function About() {
             alt="Maquiadora"
             style={{
               width: '100%',
-              maxWidth: '420px',
-              borderRadius: '20px',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
+              maxWidth: '380px',
+              borderRadius: '16px',
               objectFit: 'cover',
+              filter: 'grayscale(100%) contrast(1.05)', // 🔥 mantém identidade black/white
+              transition: 'all 0.4s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.filter = 'grayscale(0%)';
+              e.currentTarget.style.transform = 'scale(1.02)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.filter = 'grayscale(100%) contrast(1.05)';
+              e.currentTarget.style.transform = 'scale(1)';
             }}
           />
         </div>
@@ -70,17 +82,10 @@ function About() {
 }
 
 const textStyle = {
-  fontSize: '1.1rem',
+  fontSize: '1rem',
   lineHeight: 1.8,
-  color: '#444',
+  color: '#555',
+  fontFamily: "'Montserrat', sans-serif",
 };
-
-<section
-  id="about"
-  style={{
-    padding: '100px 5%',
-    scrollMarginTop: '120px'
-  }}
-></section>
 
 export default About;
