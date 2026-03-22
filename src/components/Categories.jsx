@@ -3,27 +3,27 @@ import React from 'react';
 const categories = [
   {
     name: 'Cosméticos',
-    image: 'https://via.placeholder.com/300x300/ffebee/000?text=Cosm%C3%A9ticos',
+    image: 'assets/cosmeticos.jpg',
     link: '#'
   },
   {
     name: 'Maquiagem',
-    image: 'https://via.placeholder.com/300x300/fff0f5/000?text=Maquiagem',
+    image: 'assets/maquiagem.jpg',
     link: '#'
   },
   {
     name: 'Skin Care',
-    image: 'https://via.placeholder.com/300x300/fecdd3/000?text=Skin+Care',
+    image: 'assets/skincare.jpg',
     link: '#'
   },
   {
     name: 'Cabelo',
-    image: 'https://via.placeholder.com/300x300/ffe4e1/000?text=Cabelo',
+    image: 'assets/cabelo.jpg',
     link: '#'
   },
   {
     name: 'Unhas',
-    image: 'https://via.placeholder.com/300x300/ffebee/000?text=Unhas',
+    image: 'assets/unhas.jpg',
     link: '#'
   }
 ];
@@ -48,7 +48,7 @@ function Categories() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gridTemplateColumns: 'repeat(5, 1fr)',
           gap: '24px'
         }}>
           {categories.map((category, index) => (
@@ -65,7 +65,7 @@ function Categories() {
               <img
                 src={category.image}
                 alt={category.name}
-                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '220px', objectFit: 'cover' }}
               />
               <div style={{ padding: '16px', textAlign: 'center' }}>
                 <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: '700', color: '#2b2b2b' }}>

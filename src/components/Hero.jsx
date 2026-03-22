@@ -3,17 +3,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: 'https://via.placeholder.com/1920x800/ffebee/000?text=Glow+Hero+1',
-    alt: 'Mulher sorrindo com maquiagem glamourosa',
+    image: 'https://i.pinimg.com/1200x/d7/42/58/d7425895b32ef5c4c5b31e0cff54aa22.jpg',
+    title: 'Glow Studio',
+    subtitle: 'Maquiagem profissional que realça sua beleza única',
+    position: 'center 30%',
   },
   {
-    image: 'https://via.placeholder.com/1920x800/fff0f5/000?text=Glow+Hero+2',
-    alt: 'Produtos premium em display elegante',
+    image: 'https://i.pinimg.com/1200x/08/82/7f/08827fc3df8a8c6cf811d3e51ffa3030.jpg',
+    title: 'Transformações que Brilham',
+    subtitle: 'Especializada em noivas e eventos',
+    position: 'center 35%',
   },
   {
-    image: 'https://via.placeholder.com/1920x800/fecdd3/000?text=Glow+Hero+3',
-    alt: 'Beleza radiante com acabamento luminoso',
-  }
+    image: 'https://i.pinimg.com/1200x/c3/2e/d5/c32ed552b3628617a167560ce479c9e7.jpg',
+    title: 'Seu Momento, Seu Glow',
+    subtitle: 'Agende sua sessão e sinta-se radiante',
+    position: 'center 40%',
+  },
 ];
 
 function Hero() {
@@ -22,186 +28,183 @@ function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
+    }, 7000);
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
   return (
     <section
-      className="heroGlow"
       style={{
         position: 'relative',
-        width: '100vw',
-        left: '50%',
-        right: '50%',
-        marginLeft: '-50vw',
-        marginRight: '-50vw',
-        minHeight: '70vh',
+        width: '100%',
+        height: '85vh',
         overflow: 'hidden',
-        marginBottom: '60px',
-        background: 'linear-gradient(180deg, #fff0f5 0%, #ffffff 100%)'
       }}
     >
-      <div style={{
-        display: 'flex',
-        width: `${slides.length * 100}%`,
-        height: '100%',
-        transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
-        transition: 'transform 0.8s ease'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          width: `${slides.length * 100}%`,
+          height: '100%',
+          transform: `translateX(-${currentSlide * (100 / slides.length)}%)`,
+          transition: 'transform 0.7s ease',
+        }}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
             style={{
               width: `${100 / slides.length}%`,
               height: '100%',
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              position: 'relative'
+              position: 'relative',
             }}
           >
-            <div style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              textAlign: 'center',
-              color: '#fff',
-              padding: '0 24px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.5)'
-            }}>
-              <h1 style={{
-                fontSize: '3.6rem',
-                margin: 0,
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 800,
-                letterSpacing: '0.04em',
-                color: '#fff'
-              }}>
-                Descubra o Glow Perfeito
-              </h1>
-              <p style={{
-                margin: '18px auto',
-                maxWidth: '520px',
-                fontSize: '1.15rem',
-                lineHeight: 1.6,
-                color: '#fff'
-              }}>
-                Experimente brilho, textura e luxo em cada produto.
-              </p>
-              <button
-                className="glowButton"
+            <img
+              src={slide.image}
+              alt={slide.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: slide.position,
+                filter: 'brightness(0.85)',
+                display: 'block',
+              }}
+              draggable={false}
+            />
+
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5))',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                padding: '0 1.5rem',
+              }}
+            >
+              <h1
                 style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 700,
-                  fontSize: '1rem'
+                  fontSize: 'clamp(3rem, 7vw, 5rem)',
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#ffffff',
+                  marginBottom: '1rem',
+                  letterSpacing: '2px',
+                  textShadow: '0 4px 20px rgba(0,0,0,0.6)',
                 }}
               >
-                Ver Promoções
-              </button>
+                {slide.title}
+              </h1>
+
+              <p
+                style={{
+                  fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+                  color: '#e5e5e5',
+                  maxWidth: '600px',
+                  marginBottom: '2rem',
+                }}
+              >
+                {slide.subtitle}
+              </p>
+
+              <a
+                href="#contato"
+                style={{
+                  background: '#ffffff',
+                  color: '#000',
+                  borderRadius: '50px',
+                  padding: '12px 36px',
+                  textDecoration: 'none',
+                  fontWeight: 600,
+                  transition: 'all 0.3s',
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = '#000';
+                  e.currentTarget.style.color = '#fff';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = '#fff';
+                  e.currentTarget.style.color = '#000';
+                }}
+              >
+                Agendar Agora
+              </a>
             </div>
           </div>
         ))}
       </div>
 
+      {/* setas */}
       <button
-        onClick={prevSlide}
-        aria-label="Slide anterior"
+        onClick={() =>
+          setCurrentSlide(
+            (prev) => (prev - 1 + slides.length) % slides.length
+          )
+        }
         style={{
           position: 'absolute',
           top: '50%',
-          left: '28px',
+          left: '2%',
           transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(255, 255, 255, 0.65)',
-          border: '1px solid rgba(255, 105, 180, 0.4)',
+          background: 'rgba(255,255,255,0.7)',
+          border: 'none',
           borderRadius: '50%',
           width: '42px',
           height: '42px',
           cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 10,
-          transition: 'transform 0.2s, box-shadow 0.2s'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
-          e.currentTarget.style.boxShadow = '0 0 16px rgba(255, 105, 180, 0.4)';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-          e.currentTarget.style.boxShadow = 'none';
         }}
       >
-        <ChevronLeft size={18} color="#333" />
-      </button>
-      <button
-        onClick={nextSlide}
-        aria-label="Próximo slide"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '28px',
-          transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(255, 255, 255, 0.65)',
-          border: '1px solid rgba(255, 105, 180, 0.4)',
-          borderRadius: '50%',
-          width: '42px',
-          height: '42px',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 10,
-          transition: 'transform 0.2s, box-shadow 0.2s'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1.05)';
-          e.currentTarget.style.boxShadow = '0 0 16px rgba(255, 105, 180, 0.4)';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-          e.currentTarget.style.boxShadow = 'none';
-        }}
-      >
-        <ChevronRight size={18} color="#333" />
+        <ChevronLeft size={24} />
       </button>
 
-      <div style={{
-        position: 'absolute',
-        bottom: '22px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        gap: '10px'
-      }}>
+      <button
+        onClick={() =>
+          setCurrentSlide((prev) => (prev + 1) % slides.length)
+        }
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '2%',
+          transform: 'translateY(-50%)',
+          background: 'rgba(255,255,255,0.7)',
+          border: 'none',
+          borderRadius: '50%',
+          width: '42px',
+          height: '42px',
+          cursor: 'pointer',
+        }}
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* indicadores */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '1.5rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: '8px',
+        }}
+      >
         {slides.map((_, index) => (
-          <button
+          <div
             key={index}
-            onClick={() => goToSlide(index)}
+            onClick={() => setCurrentSlide(index)}
             style={{
-              width: '10px',
-              height: '10px',
+              width: '8px',
+              height: '8px',
               borderRadius: '50%',
-              border: currentSlide === index ? '1px solid var(--glow)' : '1px solid rgba(255,255,255,0.6)',
-              backgroundColor: currentSlide === index ? 'var(--glow)' : 'rgba(255,255,255,0.6)',
+              background:
+                index === currentSlide
+                  ? '#fff'
+                  : 'rgba(255,255,255,0.4)',
               cursor: 'pointer',
-              transition: 'transform 0.2s, background-color 0.2s, border 0.2s',
-              transform: currentSlide === index ? 'scale(1.2)' : 'scale(1)'
             }}
           />
         ))}

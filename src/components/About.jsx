@@ -1,31 +1,86 @@
 function About() {
   return (
-    <section id="about" style={{ padding: '100px 5%', backgroundColor: '#fff', maxWidth: '1400px', margin: '0 auto' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-        <div>
-          <h2 style={{ fontSize: '3rem', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
-            Olá, eu sou a Débora
+    <section
+      id="about"
+      style={{
+        padding: '140px 5% 100px',
+        backgroundColor: '#fff',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex', // 👈 TROQUEI GRID POR FLEX
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '60px',
+          flexWrap: 'wrap', // 👈 ISSO SALVA NO MOBILE
+        }}
+      >
+        {/* TEXTO */}
+        <div style={{ flex: 1, minWidth: '280px' }}>
+          <h2
+            style={{
+              fontSize: 'clamp(2.2rem, 5vw, 3rem)',
+              fontFamily: "'Playfair Display', serif",
+              marginBottom: '1.5rem',
+              color: '#111',
+            }}
+          >
+            Olá, eu sou a Bia
           </h2>
-          <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#444' }}>
-            Maquiadora profissional apaixonada por realçar a beleza natural de cada pessoa. 
-            Com mais de 5 anos de experiência, especializo-me em maquiagem para noivas, 
-            eventos, ensaios e produções editoriais. Meu objetivo é fazer você se sentir 
-            radiante e confiante.
+
+          <p style={textStyle}>
+            Maquiadora profissional dedicada a valorizar a sua essência e destacar o que você tem de mais bonito.
+            Com anos de experiência no mercado, atuo em maquiagem para noivas, eventos, ensaios e produções especiais,
+            sempre buscando um resultado elegante, moderno e que combine perfeitamente com você.
           </p>
-          <p style={{ marginTop: '1.5rem', fontSize: '1.15rem', lineHeight: 1.8, color: '#444' }}>
-            Cada pincelada é pensada com carinho para criar um glow único e personalizado.
+
+          <p style={{ ...textStyle, marginTop: '1.5rem' }}>
+            Cada detalhe é pensado com cuidado para criar uma maquiagem leve, sofisticada e com aquele glow
+            que realça sua beleza de forma única.
           </p>
         </div>
-        <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-          <img 
-            src="https://images.unsplash.com/photo-1583766395091-2eb9994ed094?auto=format&fit=crop&q=80&w=800" 
-            alt="Débora - Maquiadora" 
-            style={{ width: '100%', display: 'block' }}
+
+        {/* IMAGEM */}
+        <div
+          style={{
+            flex: 1,
+            minWidth: '280px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <img
+            src="https://i.pinimg.com/1200x/5f/fc/1c/5ffc1c8001f05ab78dac7dc80e0d0109.jpg"
+            alt="Maquiadora"
+            style={{
+              width: '100%',
+              maxWidth: '420px',
+              borderRadius: '20px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.15)',
+              objectFit: 'cover',
+            }}
           />
         </div>
       </div>
     </section>
   );
 }
+
+const textStyle = {
+  fontSize: '1.1rem',
+  lineHeight: 1.8,
+  color: '#444',
+};
+
+<section
+  id="about"
+  style={{
+    padding: '100px 5%',
+    scrollMarginTop: '120px'
+  }}
+></section>
 
 export default About;
