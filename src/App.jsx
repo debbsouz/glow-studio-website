@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import About from './components/About.jsx';
 import Services from './components/Services.jsx';
 import InfluencerCTA from './components/InfluencerCTA.jsx';
+import Contact from './components/contact.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <About />
         <Services />
         <InfluencerCTA />
+        <Contact />
         {/* LOCALIZAÇÃO */}
         <section
           id="localizacao"
