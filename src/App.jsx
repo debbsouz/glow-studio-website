@@ -5,6 +5,7 @@ import Services from './components/Services.jsx';
 import InfluencerCTA from './components/InfluencerCTA.jsx';
 import Contact from './components/contact.jsx';
 import Diferenciais from './components/Diferenciais.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
@@ -70,11 +71,8 @@ function App() {
           >
             Ver no Google Maps
           </a>
-
-          <p style={{ marginTop: '15px', color: '#666', fontSize: '0.9rem' }}>
-            Atendimento com hora marcada
-          </p>
         </section>
+        <Footer />
       </main>
     </div>
   );
