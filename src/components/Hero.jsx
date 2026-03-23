@@ -113,23 +113,8 @@ function Hero() {
 
               <a
                 href="#contato"
-                style={{
-                  background: '#ffffff',
-                  color: '#000',
-                  borderRadius: '50px',
-                  padding: '12px 36px',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  transition: 'all 0.3s',
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = '#000';
-                  e.currentTarget.style.color = '#fff';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = '#fff';
-                  e.currentTarget.style.color = '#000';
-                }}
+                className="glow-btn glow-btn-lg"
+                style={{ marginTop: '3rem' }}
               >
                 Agendar Agora
               </a>

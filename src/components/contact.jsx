@@ -59,15 +59,8 @@ function Contact() {
 
         <button
           type="submit"
-          style={buttonStyle}
-          onMouseOver={(e) => {
-            e.currentTarget.style.background = '#000';
-            e.currentTarget.style.color = '#fff';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.background = 'transparent';
-            e.currentTarget.style.color = '#000';
-          }}
+          className="glow-btn glow-btn-lg"
+          style={{ width: '100%', maxWidth: '400px', margin: '2rem auto 0', display: 'block' }}
         >
           ENVIAR
         </button>
@@ -83,11 +76,8 @@ function Contact() {
   href="https://wa.me/5544998176210"
   target="_blank"
   rel="noopener noreferrer"
-  style={whatsButton}
-  onMouseOver={(e) => {
-    e.currentTarget.style.background = '#000';
-    e.currentTarget.style.color = '#fff';
-  }}
+  className="glow-btn"
+  style={{ width: '100%', maxWidth: '400px', margin: '1.5rem auto 0', display: 'block', textAlign: 'center' }}
   onMouseOut={(e) => {
     e.currentTarget.style.background = 'transparent';
     e.currentTarget.style.color = '#000';

@@ -93,11 +93,8 @@ function InfluencerCTA() {
 
           <a
             href="#contato"
-            style={{
-              display: 'inline-block',
-              padding: '12px 26px',
-              border: '1px solid #000',
-              color: '#000',
+            className="glow-btn"
+            style={{ marginTop: '1.5rem' }}
               textDecoration: 'none',
               borderRadius: '30px',
               fontSize: '0.85rem',

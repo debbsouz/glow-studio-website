@@ -73,9 +73,9 @@ function Header() {
               </div>
             )}
           </div>
-          <button style={iconButton}><User size={18} /></button>
-          <button style={iconButton}><Heart size={18} /></button>
-          <button style={iconButton}><ShoppingCart size={18} /></button>
+          <button className="glow-btn" style={iconButton}><User size={18} /></button>
+          <button className="glow-btn" style={iconButton}><Heart size={18} /></button>
+          <button className="glow-btn" style={iconButton}><ShoppingCart size={18} /></button>
         </nav>
       </div>
     </header>

@@ -73,26 +73,8 @@ function Categories() {
                 </h3>
                 <a
                   href={category.link}
-                  style={{
-                    display: 'inline-block',
-                    marginTop: '12px',
-                    fontSize: '0.95rem',
-                    fontWeight: '700',
-                    color: '#d6336c',
-                    textDecoration: 'none',
-                    padding: '8px 14px',
-                    borderRadius: '999px',
-                    border: '1px solid rgba(214, 51, 108, 0.25)',
-                    transition: 'background-color 0.2s, transform 0.2s'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(246, 109, 155, 0.12)';
-                    e.currentTarget.style.transform = 'translateY(-1px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }}
+                  className="glow-btn"
+                  style={{ marginTop: '12px' }}
                 >
                   Ver mais
                 </a>
