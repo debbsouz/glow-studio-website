@@ -38,16 +38,15 @@ function Diferenciais() {
         alt="Maquiagem glow elegante"
         style={{
           position: 'absolute',
-          <a
-            href="#contact"
-            className="glow-btn glow-btn-lg"
-            style={{ marginTop: '4rem' }}
-          >
-            Agendar sua sessão
-          </a>
-          color: '#111111',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 1,
+          opacity: 0.18,
         }}
-      >
+      />
         <h2
           style={{
             fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
@@ -80,6 +79,8 @@ function Diferenciais() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '2.5rem',
+            zIndex: 3,
+            position: 'relative',
           }}
         >
           {diferenciais.map((item, index) => (
@@ -126,35 +127,14 @@ function Diferenciais() {
         </div>
 
         {/* CTA clean e elegante */}
-        <a
-          href="#contact"
-          style={{
-            display: 'inline-block',
-            marginTop: '4rem',
-            background: '#000000',
-            color: '#ffffff',
-            padding: '14px 42px',
-            borderRadius: '50px',
-            fontSize: '1.05rem',
-            fontWeight: 500,
-            textDecoration: 'none',
-            letterSpacing: '0.5px',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#111111';
-            e.currentTarget.style.transform = 'translateY(-3px)';
-            e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.18)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = '#000000';
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)';
-          }}
-        >
-          Agendar sua sessão
-        </a>
+        <div style={{ textAlign: 'center', marginTop: '4rem', zIndex: 3, position: 'relative' }}>
+          <a
+            href="#contact"
+            className="glow-btn glow-btn-lg"
+          >
+            Agendar sua sessão
+          </a>
+        </div>
       </div>
     </section>
   );
