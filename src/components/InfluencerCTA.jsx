@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function InfluencerCTA() {
   const sectionRef = useRef();
@@ -91,10 +91,12 @@ function InfluencerCTA() {
             Quer viver essa experiência e fazer parte do Glow?
           </p>
 
+          {/* CTA corrigido */}
           <a
             href="#contato"
             className="glow-btn"
-            style={{ marginTop: '1.5rem' }}
+            style={{
+              marginTop: '1.5rem',
               textDecoration: 'none',
               borderRadius: '30px',
               fontSize: '0.85rem',
