@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Header() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const menuItems = ['Home', 'Sobre', 'Serviços', 'Contato', 'Localização'];
+
   return (
     <header
       style={{
@@ -11,7 +27,7 @@ function Header() {
         zIndex: 1100,
         backgroundColor: '#fdfdfd',
         boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
-        padding: '12px 5%',
+        padding: isMobile ? '12px 6%' : '12px 5%',
       }}
     >
       <div
@@ -23,54 +39,83 @@ function Header() {
           justifyContent: 'space-between',
         }}
       >
+        {/* LOGO */}
         <a
           href="#home"
           style={{
             textDecoration: 'none',
             color: '#000',
             fontFamily: "'Playfair Display', serif",
-            fontSize: '1.8rem',
+            fontSize: isMobile ? '1.4rem' : '1.8rem',
             fontWeight: 700,
-            letterSpacing: '0.05em',
           }}
         >
           Glow Studio
         </a>
 
-        <nav>
-          <ul
+        {/* DESKTOP */}
+        {!isMobile && (
+          <nav>
+            <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none' }}>
+              {menuItems.map((item) => (
+                <li key={item}>
+                  <a href={`#${item.toLowerCase()}`} style={linkStyle}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        {/* MOBILE BUTTON */}
+        {isMobile && (
+          <div
+            onClick={() => setMenuOpen(!menuOpen)}
             style={{
-              display: 'flex',
-              gap: '2.5rem',
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
+              fontSize: '1.5rem',
+              cursor: 'pointer',
             }}
           >
-            {['Home', 'Sobre', 'Serviços', 'Contato', 'Localização'].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  style={{
-                    color: '#111',
-                    textDecoration: 'none',
-                    fontFamily: "'Montserrat', sans-serif",
-                    fontWeight: 500,
-                    fontSize: '1rem',
-                    transition: 'color 0.3s ease',
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = '#000')}
-                  onMouseLeave={(e) => (e.target.style.color = '#111')}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+            ☰
+          </div>
+        )}
       </div>
+
+      {/* MOBILE MENU */}
+      {menuOpen && isMobile && (
+        <div
+          style={{
+            marginTop: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '15px',
+            padding: '20px',
+            background: '#fff',
+            borderTop: '1px solid rgba(0,0,0,0.05)',
+          }}
+        >
+          {menuItems.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              style={linkStyle}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
+
+const linkStyle = {
+  textDecoration: 'none',
+  color: '#111',
+  fontFamily: "'Montserrat', sans-serif",
+  fontSize: '0.95rem',
+};
 
 export default Header;

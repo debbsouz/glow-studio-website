@@ -29,7 +29,7 @@ function Footer() {
       <div
         style={{
           textAlign: 'center',
-          padding: '60px 20px 30px', 
+          padding: '50px 20px 25px', 
           maxWidth: '700px',
           margin: '0 auto',
         }}
@@ -74,7 +74,7 @@ function Footer() {
           margin: '0 auto',
           padding: '30px 5%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
           gap: '25px',
         }}
       >

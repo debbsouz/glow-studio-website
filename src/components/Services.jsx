@@ -90,7 +90,7 @@ function Services() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
           gap: '40px',
           maxWidth: '1100px',
           margin: '0 auto',

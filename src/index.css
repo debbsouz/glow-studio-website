@@ -306,3 +306,17 @@ html {
   transform: scale(1.1);
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
+
+@media (max-width: 768px) {
+  section {
+    padding: 70px 6% !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    font-size: 0.95rem !important;
+  }
+}

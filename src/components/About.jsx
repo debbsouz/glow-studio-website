@@ -3,7 +3,7 @@ function About() {
     <section
       id="about"
       style={{
-        padding: '140px 5% 100px',
+        padding: '120px 5% 80px',
         backgroundColor: '#fff',
         scrollMarginTop: '120px',
       }}
@@ -15,7 +15,7 @@ function About() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '80px',
+          gap: '60px',
           flexWrap: 'wrap',
         }}
       >
@@ -23,7 +23,7 @@ function About() {
         <div style={{ flex: 1, minWidth: '280px' }}>
           <h2
             style={{
-              fontSize: '2.4rem', // 🔥 padronizado com Services/Localização
+              fontSize: '2.4rem',
               marginBottom: '20px',
               fontFamily: "'Playfair Display', serif",
               fontWeight: 600,
@@ -60,10 +60,9 @@ function About() {
             alt="Maquiadora"
             style={{
               width: '100%',
-              maxWidth: '380px',
-              borderRadius: '16px',
+              maxWidth: '360px', 
               objectFit: 'cover',
-              filter: 'grayscale(100%) contrast(1.05)', // 🔥 mantém identidade black/white
+              filter: 'grayscale(100%) contrast(1.05)',
               transition: 'all 0.4s ease',
             }}
             onMouseOver={(e) => {

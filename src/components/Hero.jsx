@@ -24,6 +24,7 @@ const slides = [
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,12 +33,23 @@ function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section
       style={{
         position: 'relative',
         width: '100%',
-        height: '85vh',
+        height: isMobile ? '70vh' : '85vh', // 🔥 ajuste mobile
         overflow: 'hidden',
       }}
     >
@@ -68,33 +80,32 @@ function Hero() {
                 objectFit: 'cover',
                 objectPosition: slide.position,
                 filter: 'brightness(0.85)',
-                display: 'block',
               }}
               draggable={false}
             />
 
+            {/* overlay */}
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(to bottom, rgba(19, 18, 18, 0.2), rgba(12, 12, 12, 0.5))',
+                  'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.55))',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                padding: '0 1.5rem',
+                padding: isMobile ? '0 1rem' : '0 2rem',
               }}
             >
               <h1
                 style={{
-                  fontSize: 'clamp(3rem, 7vw, 5rem)',
+                  fontSize: 'clamp(2.2rem, 7vw, 5rem)', // 🔥 menor no mobile
                   fontFamily: "'Playfair Display', serif",
-                  color: '#ffffff',
-                  marginBottom: '1rem',
+                  color: '#fff',
+                  marginBottom: '0.8rem',
                   letterSpacing: '2px',
-                  textShadow: '0 4px 20px rgba(29, 28, 28, 0.6)',
                 }}
               >
                 {slide.title}
@@ -102,10 +113,10 @@ function Hero() {
 
               <p
                 style={{
-                  fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+                  fontSize: 'clamp(0.95rem, 2.5vw, 1.3rem)',
                   color: '#e5e5e5',
-                  maxWidth: '600px',
-                  marginBottom: '2rem',
+                  maxWidth: '520px',
+                  marginBottom: isMobile ? '1.2rem' : '2rem',
                 }}
               >
                 {slide.subtitle}
@@ -113,10 +124,12 @@ function Hero() {
 
               <a
                 href="#contato"
-                className="glow-btn glow-btn-lg"
-                style={{ marginTop: '3rem' }}
+                className="glow-btn"
+                style={{
+                  marginTop: isMobile ? '1rem' : '2rem', // 🔥 antes tava MUITO longe
+                }}
               >
-                Agendar Agora
+                Agendar
               </a>
             </div>
           </div>
@@ -124,57 +137,39 @@ function Hero() {
       </div>
 
       {/* setas */}
-      <button
-        onClick={() =>
-          setCurrentSlide(
-            (prev) => (prev - 1 + slides.length) % slides.length
-          )
-        }
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '2%',
-          transform: 'translateY(-50%)',
-          background: 'rgba(255,255,255,0.7)',
-          border: 'none',
-          borderRadius: '50%',
-          width: '42px',
-          height: '42px',
-          cursor: 'pointer',
-        }}
-      >
-        <ChevronLeft size={24} />
-      </button>
+      {!isMobile && ( // 🔥 esconde no mobile (fica mais clean)
+        <>
+          <button
+            onClick={() =>
+              setCurrentSlide(
+                (prev) => (prev - 1 + slides.length) % slides.length
+              )
+            }
+            style={arrowStyle('left')}
+          >
+            <ChevronLeft size={22} />
+          </button>
 
-      <button
-        onClick={() =>
-          setCurrentSlide((prev) => (prev + 1) % slides.length)
-        }
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '2%',
-          transform: 'translateY(-50%)',
-          background: 'rgba(255,255,255,0.7)',
-          border: 'none',
-          borderRadius: '50%',
-          width: '42px',
-          height: '42px',
-          cursor: 'pointer',
-        }}
-      >
-        <ChevronRight size={24} />
-      </button>
+          <button
+            onClick={() =>
+              setCurrentSlide((prev) => (prev + 1) % slides.length)
+            }
+            style={arrowStyle('right')}
+          >
+            <ChevronRight size={22} />
+          </button>
+        </>
+      )}
 
-      {/* indicadores */}
+      {/* bolinhas */}
       <div
         style={{
           position: 'absolute',
-          bottom: '1.5rem',
+          bottom: '1.2rem',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
-          gap: '8px',
+          gap: '6px',
         }}
       >
         {slides.map((_, index) => (
@@ -182,8 +177,8 @@ function Hero() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             style={{
-              width: '8px',
-              height: '8px',
+              width: '7px',
+              height: '7px',
               borderRadius: '50%',
               background:
                 index === currentSlide
@@ -197,5 +192,18 @@ function Hero() {
     </section>
   );
 }
+
+const arrowStyle = (side) => ({
+  position: 'absolute',
+  top: '50%',
+  [side]: '2%',
+  transform: 'translateY(-50%)',
+  background: 'rgba(255,255,255,0.7)',
+  border: 'none',
+  borderRadius: '50%',
+  width: '38px',
+  height: '38px',
+  cursor: 'pointer',
+});
 
 export default Hero;
