@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { User, Heart, ShoppingCart, ChevronDown } from 'lucide-react';
+import React from 'react';
 
 function Header() {
-  const [categoriesOpen, setCategoriesOpen] = useState(false);
-
   return (
     <header
       style={{
@@ -12,11 +9,9 @@ function Header() {
         left: 0,
         width: '100%',
         zIndex: 1100,
-        backgroundColor: 'rgba(255, 255, 255, 0.75)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(0,0,0,0.06)',
+        backgroundColor: '#fdfdfd',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
         padding: '12px 5%',
-        fontFamily: "'Montserrat', sans-serif"
       }}
     >
       <div
@@ -25,104 +20,57 @@ function Header() {
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
         }}
       >
-<a href="#" style={{ textDecoration: 'none' }}>
-  <img 
-    src= "/assets/glowlogo.png" 
-    alt="Glow Studio" 
-    style={{ 
-      height: '48px',
-      width: 'auto',
-      display: 'block'
-    }} 
-  />
-</a>
+        <a
+          href="#home"
+          style={{
+            textDecoration: 'none',
+            color: '#000',
+            fontFamily: "'Playfair Display', serif",
+            fontSize: '1.8rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+          }}
+        >
+          Glow Studio
+        </a>
 
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <a href="#home" style={navLinkStyle}>Home</a>
-          <a href="#sobre" style={navLinkStyle}>Sobre</a>
-          <a href="#contato" style={navLinkStyle}>Contato</a>
-          <a href="#localizacao" style={navLinkStyle}>Localização</a>
-
-          {/* Dropdown */}
-          <div
-            style={{ position: 'relative' }}
-            onMouseEnter={() => setCategoriesOpen(true)}
-            onMouseLeave={() => setCategoriesOpen(false)}
+        <nav>
+          <ul
+            style={{
+              display: 'flex',
+              gap: '2.5rem',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+            }}
           >
-            <button style={dropdownButton}>
-              <ChevronDown
-                size={18}
-                style={{
-                  color: '#000',
-                  transition: '0.3s',
-                  transform: categoriesOpen ? 'rotate(180deg)' : 'rotate(0deg)'
-                }}
-              />
-            </button>
-
-            {categoriesOpen && (
-              <div style={dropdownStyle}>
-                {['Noivas', 'Eventos', 'Produções', 'Cursos'].map((item) => (
-                  <a key={item} href="#" style={dropdownItem}>
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-          <button className="glow-btn" style={iconButton}><User size={18} /></button>
-          <button className="glow-btn" style={iconButton}><Heart size={18} /></button>
-          <button className="glow-btn" style={iconButton}><ShoppingCart size={18} /></button>
+            {['Home', 'Sobre', 'Serviços', 'Contato', 'Localização'].map((item) => (
+              <li key={item}>
+                <a
+                  href={`#${item.toLowerCase()}`}
+                  style={{
+                    color: '#111',
+                    textDecoration: 'none',
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontWeight: 500,
+                    fontSize: '1rem',
+                    transition: 'color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#000')}
+                  onMouseLeave={(e) => (e.target.style.color = '#111')}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </header>
   );
 }
-
-const navLinkStyle = {
-  color: '#000',
-  textDecoration: 'none',
-  fontWeight: 500,
-  position: 'relative',
-};
-
-const dropdownButton = {
-  background: 'transparent',
-  border: 'none',
-  cursor: 'pointer',
-  padding: '6px',
-  borderRadius: '50%',
-};
-
-const dropdownStyle = {
-  position: 'absolute',
-  top: 'calc(100% + 10px)',
-  left: 0,
-  minWidth: '180px',
-  backgroundColor: '#fff',
-  borderRadius: '10px',
-  boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
-  padding: '6px 0',
-};
-
-const dropdownItem = {
-  display: 'block',
-  padding: '10px 16px',
-  color: '#000',
-  textDecoration: 'none',
-  fontSize: '14px',
-};
-
-const iconButton = {
-  background: 'transparent',
-  border: '1px solid rgba(0,0,0,0.15)',
-  padding: '8px',
-  borderRadius: '50%',
-  cursor: 'pointer',
-  transition: 'all 0.2s',
-};
 
 export default Header;
