@@ -72,18 +72,17 @@ function Diferenciais() {
           color: '#111111',
         }}
       >
-        <h2
-          style={{
-            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: 700,
-            marginBottom: '1rem',
-            letterSpacing: '-0.02em',
-            color: '#000000',
-          }}
-        >
-          O que torna o Glow Studio único
-        </h2>
+<h2
+  style={{
+    fontSize: '2.4rem',
+    fontFamily: "'Playfair Display', serif",
+    fontWeight: 600,
+    marginBottom: '20px',
+    color: '#000',
+  }}
+>
+  O que a Glow Studio tem de diferente?
+</h2>
 
         <p
           style={{

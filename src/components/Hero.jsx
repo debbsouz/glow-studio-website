@@ -78,7 +78,7 @@ function Hero() {
                 position: 'absolute',
                 inset: 0,
                 background:
-                  'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5))',
+                  'linear-gradient(to bottom, rgba(19, 18, 18, 0.2), rgba(12, 12, 12, 0.5))',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -94,7 +94,7 @@ function Hero() {
                   color: '#ffffff',
                   marginBottom: '1rem',
                   letterSpacing: '2px',
-                  textShadow: '0 4px 20px rgba(0,0,0,0.6)',
+                  textShadow: '0 4px 20px rgba(29, 28, 28, 0.6)',
                 }}
               >
                 {slide.title}

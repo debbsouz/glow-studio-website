@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function Services() {
   const sectionRef = useRef();
@@ -7,33 +7,70 @@ function Services() {
     const el = sectionRef.current;
 
     el.style.opacity = 0;
-    el.style.transform = 'translateY(30px)';
+    el.style.transform = 'translateY(20px)';
 
     setTimeout(() => {
-      el.style.transition = 'all 0.8s ease';
+      el.style.transition = 'all 0.7s ease';
       el.style.opacity = 1;
       el.style.transform = 'translateY(0)';
-    }, 200);
+    }, 150);
   }, []);
+
+  const services = [
+    {
+      title: 'Noivas',
+      desc: 'Maquiagem e penteado completo para o seu grande dia.',
+      image: 'https://i.pinimg.com/736x/ce/10/b7/ce10b7e1026a2a35b58295ebad7be08d.jpg',
+      position: 'center 20%',
+    },
+    {
+      title: 'Eventos',
+      desc: 'Produções sofisticadas para ocasiões especiais.',
+      image: 'https://i.pinimg.com/736x/eb/f2/13/ebf213c8bd98b89719e2a85021117513.jpg',
+      position: 'center 25%',
+    },
+    {
+      title: 'Editorial',
+      desc: 'Ensaios e campanhas com acabamento profissional.',
+      image: 'https://i.pinimg.com/736x/c8/cc/e4/c8cce43626296ef96c5f2c225d50492a.jpg',
+      position: 'center',
+    },
+    {
+      title: 'Automaquiagem',
+      desc: 'Técnicas para realçar sua beleza no dia a dia.',
+      image: 'https://i.pinimg.com/1200x/e8/d3/07/e8d30722974324b7bb39077efa24d3bb.jpg',
+      position: 'center 30%',
+    },
+    {
+      title: 'Penteados',
+      desc: 'Criações elegantes e duradouras.',
+      image: 'https://i.pinimg.com/736x/85/83/35/8583357d668914043c641ee5e18ab219.jpg',
+      position: 'center 15%',
+    },
+    {
+      title: 'Massagem Facial',
+      desc: 'Relaxamento e glow natural da pele.',
+      image: 'https://i.pinimg.com/736x/94/cc/3d/94cc3df90dabb778c06e100244dc8269.jpg',
+      position: 'center',
+    },
+  ];
 
   return (
     <section
       id="servicos"
       ref={sectionRef}
       style={{
-        padding: '120px 5%',
+        padding: '110px 5%',
         background: '#fff',
         textAlign: 'center',
-        fontFamily: "'Montserrat', sans-serif",
       }}
     >
       <h2
         style={{
           fontSize: '2.4rem',
-          marginBottom: '10px',
           fontFamily: "'Playfair Display', serif",
           fontWeight: 600,
-          letterSpacing: '0.5px',
+          marginBottom: '15px',
           color: '#000',
         }}
       >
@@ -42,9 +79,9 @@ function Services() {
 
       <p
         style={{
-          color: '#777',
-          marginBottom: '80px',
           fontSize: '1rem',
+          color: '#777',
+          marginBottom: '70px',
         }}
       >
         Beleza com precisão e naturalidade
@@ -53,83 +90,69 @@ function Services() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '60px 120px',
-          maxWidth: '900px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '40px',
+          maxWidth: '1100px',
           margin: '0 auto',
           textAlign: 'left',
         }}
       >
-        {[
-          {
-            title: 'Noivas',
-            desc: 'Produção completa para o seu grande dia',
-          },
-          {
-            title: 'Eventos',
-            desc: 'Maquiagem para ocasiões especiais',
-          },
-          {
-            title: 'Editorial',
-            desc: 'Ensaios e produções profissionais',
-          },
-          {
-            title: 'Automaquiagem',
-            desc: 'Técnicas para realçar sua beleza no dia a dia',
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            style={{
-              padding: '25px 20px',
-              borderRadius: '10px',
-              background: 'rgba(0,0,0,0.02)', // 🔥 leve
-              transition: 'all 0.3s ease',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(0,0,0,0.04)';
-              e.currentTarget.style.transform = 'translateY(-3px)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'rgba(0,0,0,0.02)';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
+        {services.map((service, index) => (
+          <div key={index} style={{ cursor: 'pointer' }}>
+
+            {/* IMAGEM */}
+            <div
+              style={{
+                width: '100%',
+                aspectRatio: '4/5', // 🔥 MAIS ELEGANTE
+                overflow: 'hidden',
+                marginBottom: '15px',
+                borderRadius: '10px',
+              }}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: service.position,
+                  filter: 'grayscale(100%)',
+                  transition: 'all 0.4s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.filter = 'grayscale(0%)';
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.filter = 'grayscale(100%)';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+              />
+            </div>
+
+            {/* TEXTO */}
             <h3
               style={{
                 fontSize: '1.2rem',
-                marginBottom: '8px',
-                fontWeight: 500,
                 fontFamily: "'Playfair Display', serif",
+                marginBottom: '6px',
+                color: '#000',
               }}
             >
-              {item.title}
+              {service.title}
             </h3>
 
             <p
               style={{
+                fontSize: '0.9rem',
                 color: '#666',
-                fontSize: '0.95rem',
-                lineHeight: '1.6',
-                marginBottom: '12px',
+                lineHeight: 1.5,
               }}
             >
-              {item.desc}
+              {service.desc}
             </p>
-
-            <span
-              style={{
-                fontSize: '0.75rem',
-                letterSpacing: '2px',
-                color: '#000',
-                cursor: 'pointer',
-                transition: 'opacity 0.3s',
-              }}
-              onMouseOver={(e) => (e.currentTarget.style.opacity = 0.5)}
-              onMouseOut={(e) => (e.currentTarget.style.opacity = 1)}
-            >
-              AGENDAR →
-            </span>
           </div>
         ))}
       </div>

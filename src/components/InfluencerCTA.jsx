@@ -21,7 +21,7 @@ function InfluencerCTA() {
       ref={sectionRef}
       style={{
         padding: '120px 5%',
-        background: '#fff',
+        background: '#f9f9f9', // 🔥 leve contraste com resto
       }}
     >
       <div
@@ -38,7 +38,7 @@ function InfluencerCTA() {
         <div>
           <img
             src="https://i.pinimg.com/1200x/d9/59/48/d9594893652e922782388ee2b94e6828.jpg"
-            alt="Cliente"
+            alt="Modelo Glow"
             style={{
               width: '100%',
               borderRadius: '16px',
@@ -57,6 +57,18 @@ function InfluencerCTA() {
 
         {/* TEXTO */}
         <div>
+          <span
+            style={{
+              fontSize: '0.75rem',
+              letterSpacing: '2px',
+              color: '#999',
+              display: 'block',
+              marginBottom: '10px',
+            }}
+          >
+            GLOW EXPERIENCE
+          </span>
+
           <h2
             style={{
               fontSize: '2.4rem',
@@ -66,7 +78,7 @@ function InfluencerCTA() {
               color: '#000',
             }}
           >
-            Glow Experience
+            Seja modelo do studio
           </h2>
 
           <p
@@ -77,30 +89,42 @@ function InfluencerCTA() {
               fontFamily: "'Montserrat', sans-serif",
             }}
           >
-            Cada cliente é única — e algumas se tornam parte da essência do studio.
-            Resultados reais, beleza real e um cuidado pensado em cada detalhe.
+            Estamos em busca de modelos para participar de produções reais do studio,
+            incluindo noivas, eventos e ensaios.
           </p>
 
           <p
             style={{
-              color: '#777',
-              marginBottom: '30px',
-              fontSize: '0.95rem',
+              color: '#555',
+              lineHeight: '1.8',
+              marginBottom: '20px',
             }}
           >
-            Quer viver essa experiência e fazer parte do Glow?
+            Você pode receber maquiagem profissional, participar de conteúdos e viver
+            a experiência completa Glow — tudo com acompanhamento especializado.
           </p>
 
-          {/* CTA corrigido */}
+          <p
+            style={{
+              color: '#888',
+              marginBottom: '35px',
+              fontSize: '0.9rem',
+            }}
+          >
+            Vagas limitadas • Seleção por perfil
+          </p>
+
           <a
             href="#contato"
-            className="glow-btn"
             style={{
-              marginTop: '1.5rem',
-              textDecoration: 'none',
+              display: 'inline-block',
+              padding: '12px 26px',
+              border: '1px solid #000',
               borderRadius: '30px',
-              fontSize: '0.85rem',
-              letterSpacing: '1px',
+              textDecoration: 'none',
+              fontSize: '0.8rem',
+              letterSpacing: '1.5px',
+              color: '#000',
               transition: 'all 0.3s ease',
             }}
             onMouseOver={(e) => {
