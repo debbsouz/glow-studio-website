@@ -40,3 +40,25 @@ O projeto foi organizado de forma modular para facilitar a manutenção e escala
 - **InfluencerCTA:** Módulo focado em marketing de influência.
 - **Diferenciais:** Exposição da proposta de valor da marca.
 - **Contact:** Centralização de canais de atendimento e localização.
+
+## Instalação e Uso
+
+Para executar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
+   git clone https://github.com/debbsouz/glow-studio-website.git
+
+2. Instale as dependências:
+   npm install
+
+3. Inicie o servidor de desenvolvimento:
+   npm run dev
+
+## Deploy
+
+O projeto está disponível para visualização online em:
+[https://debbsouz.github.io/glow-studio-website/](https://debbsouz.github.io/glow-studio-website/)
+
+## Licença
+
+Este projeto foi desenvolvido para fins de portfólio profissional. Todos os direitos de design e imagem pertencem aos seus respectivos proprietários.
